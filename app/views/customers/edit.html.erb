@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	p.one{
+		padding: 10px;
+	}
+	p.two{
+		padding: 10px;
+	}
+	p.three{
+		padding: 10px;
+	}
+	p.four{
+		padding: 10px;
+	}
+	p.five{
+		padding: 10px;
+	}
+	
+</style>
+</head>
+<% if @customer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+ 
+    <ul>
+    <% @customer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<body>
+
+	<%= form_for @customer do |f| %>
+	  <p class="one"><%= f.label(:name, "Customer Name") %>
+	  <%= f.text_field(:name) %><br></p>
+	  <p class="two"><%= f.label(:email, "Customer Email") %>
+	  <%= f.text_field(:email) %><br></p>
+	  <p class="three"><%= f.label(:city, "Customer City") %>
+	  <%= f.text_field(:city) %><br></p>
+	  <p class="four"><%= f.label(:pincode, "Customer Pincode") %>
+	  <%= f.text_field(:pincode) %><br></p>
+	  <p class="five"><%= submit_tag("Submit") %></p>
+<% end %>
+</body>
+</html>
+

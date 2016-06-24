@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+	</style>
+</head>
+
+<body>
+	<table style="width:100%">
+		<tr>
+		  	<td>Id</td>
+		    <td>Customer Name</td>
+		    <td>Customer Email</td>
+		    <td>Customer City</td>
+		    <td>Customer Pincode</td>
+		    
+	  	</tr>
+		<tr>
+		  	<td> <%= params[:id] %></td>
+		    <td> <%= @customer[:name] %></td>
+		    <td> <%= @customer[:email] %></td>
+		    <td> <%= @customer[:city] %></td>
+		    <td> <%= @customer[:pincode] %></td>
+		    
+		</tr>
+	</table>
+<p><%= link_to "Back to Customers", { action: "index" } %></p>
+
+</body>
+</html>

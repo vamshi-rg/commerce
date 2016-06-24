@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+th {
+    text-align: left;
+    background-color:#00b38f
+}
+
+tr:nth-child(even){background-color: #99ffeb}
+tr:hover{background-color:#d6d6c2}
+</style>
+</head>
+
+<body>
+
+<table style="width:100%">
+	<caption><h2>List of Items</h2></caption>
+  <tr>
+  	<th>Id</th>
+    <th>Item Name</th>
+    <th>Price</th>
+    <th colspan="2">Operations</th>
+    
+  </tr>
+
+  <% @items.each do |i| %>   
+    <tr>
+	    <td> <%= link_to i[:id], item_path(i), method: :get %></td>
+	    <td> <%= i[:name] %></td>
+	    <td> <%= i[:price] %></td>
+		  <td><%= link_to image_tag("Edit_Icon_16.png"), edit_item_path(i), method: :get %></td>
+		  <td><%= button_to "Delete Item", item_path(i), method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+
+</table>
+<p><%= link_to "Create new Item", { action: "new" } %></p>
+</body>
+</html>

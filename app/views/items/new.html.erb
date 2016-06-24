@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	p.one{
+		padding: 10px;
+	}
+	p.two{
+		padding: 10px;
+	}
+	p.three{
+		padding: 10px;
+	}
+
+</style>
+</head>
+<% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+ 
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<body>
+	<%= form_tag("/items", method: "post") do %>
+	  <p class="one"><%= label_tag(:name, "Item Name") %>
+	  <%= text_field_tag(:name) %><br></p>
+	  <p class="two"><%= label_tag(:price, "Price") %>
+	  <%= text_field_tag(:price) %><br></p>
+	  
+	  <p class="three"><%= submit_tag("Submit") %></p>
+<% end %>
+</body>
+</html>

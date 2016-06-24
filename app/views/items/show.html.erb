@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+	</style>
+</head>
+
+<body>
+	<table style="width:100%">
+		<tr>
+		  	<td>Id</td>
+		    <td>Item Name</td>
+		    <td>Price</td>
+	  	</tr>
+		<tr>
+		  	<td> <%= params[:id] %></td>
+		    <td> <%= @item[:name] %></td>
+		    <td> <%= @item[:price] %></td>    
+		</tr>
+	</table>
+<p><%= link_to "Back to Customers", { action: "index" } %></p>
+
+</body>
+</html>
